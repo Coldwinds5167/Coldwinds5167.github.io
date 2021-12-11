@@ -46,7 +46,7 @@
 &lt;p&gt;​		合约的编译和部署在在线编译网站&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3JlbWl4LmV0aGVyZXVtLm9yZw==&#34;&gt; http://remix.ethereum.org&lt;/span&gt; 上进行，也可以选择本地编译器 solc 进行。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&#34;编译合约&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译合约&#34;&gt;#&lt;/a&gt; 编译合约&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;C:%5CUsers%5CViper%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210424121204202.png&#34; alt=&#34;合约编译&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/image-20210424121204202.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意编译版本尽量与声明版本号一致。&lt;/p&gt;
 &lt;/blockquote&gt;
