@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://coldwinds5167.github.io</id>
+    <id>https://www.coldwinds.top</id>
     <title>冷风喧嚣</title>
     <subtitle>懒狗一只</subtitle>
-    <icon>https://coldwinds5167.github.io/images/favicon.ico</icon>
-    <link href="https://coldwinds5167.github.io" />
+    <icon>https://www.coldwinds.top/images/favicon.ico</icon>
+    <link href="https://www.coldwinds.top" />
     <author>
       <name>Coldwinds</name>
     </author>
     <updated>2021-12-13T09:05:03.000Z</updated>
     <entry>
-        <id>https://coldwinds5167.github.io/2021/12/IO-FILE-vtable/</id>
+        <id>https://www.coldwinds.top/2021/12/IO-FILE-vtable/</id>
         <title>IO_FILE介绍及vtable劫持</title>
-        <link rel="alternate" href="https://coldwinds5167.github.io/2021/12/IO-FILE-vtable/"/>
+        <link rel="alternate" href="https://www.coldwinds.top/2021/12/IO-FILE-vtable/"/>
         <content type="html">&lt;h1 id=&#34;io_file&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#io_file&#34;&gt;#&lt;/a&gt; IO_FILE&lt;/h1&gt;
 &lt;h2 id=&#34;结构体及部分函数源码分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结构体及部分函数源码分析&#34;&gt;#&lt;/a&gt; 结构体及部分函数源码分析&lt;/h2&gt;
 &lt;h3 id=&#34;file结构体&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#file结构体&#34;&gt;#&lt;/a&gt; FILE 结构体&lt;/h3&gt;
@@ -106,14 +106,14 @@
 &lt;h3 id=&#34;东华杯2016-pwn450-notehouse-of-orange&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#东华杯2016-pwn450-notehouse-of-orange&#34;&gt;#&lt;/a&gt; 东华杯 2016-pwn450-note（house of orange）&lt;/h3&gt;
 &lt;p&gt;待施工。。。&lt;/p&gt;
 </content>
-        <category term="pwn" scheme="https://coldwinds5167.github.io/tags/pwn/" />
-        <category term="IO_FILE" scheme="https://coldwinds5167.github.io/tags/IO-FILE/" />
+        <category term="pwn" scheme="https://www.coldwinds.top/tags/pwn/" />
+        <category term="IO_FILE" scheme="https://www.coldwinds.top/tags/IO-FILE/" />
         <updated>2021-12-13T09:05:03.000Z</updated>
     </entry>
     <entry>
-        <id>https://coldwinds5167.github.io/2021/12/web-start/</id>
+        <id>https://www.coldwinds.top/2021/12/web-start/</id>
         <title>Web学习方向</title>
-        <link rel="alternate" href="https://coldwinds5167.github.io/2021/12/web-start/"/>
+        <link rel="alternate" href="https://www.coldwinds.top/2021/12/web-start/"/>
         <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;我本身并不是学习 web 方向的，所以这里也只是收集整合了一些资料，简单介绍一下 web 方向的学习内容。&lt;/p&gt;
 &lt;p&gt;web 安全的内容相对较多，任何一个知识面都是永无止境的，web 安全前期尽量做到提升自己的攻击面 (广度)，然后再选择一个自己喜欢 or 擅长的方向进行深入学习。不建议专攻开发再转安全，因为单单是 web 安全方向就很广，并且新技术迭代的很快，一味地学习开发的知识效率并不高，而是讲究循序渐进地学习。&lt;/p&gt;
@@ -426,13 +426,13 @@ C 语言学习的是面向过程思想，是学习编程语言的起点，把 C 
 &lt;p&gt;&lt;strong&gt;参考资料&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1dlNXRlci9TY2FubmVycy1Cb3g=&#34;&gt;https://github.com/We5ter/Scanners-Box&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="web" scheme="https://coldwinds5167.github.io/tags/web/" />
+        <category term="web" scheme="https://www.coldwinds.top/tags/web/" />
         <updated>2021-12-13T02:04:47.000Z</updated>
     </entry>
     <entry>
-        <id>https://coldwinds5167.github.io/2021/12/crypto-start/</id>
+        <id>https://www.coldwinds.top/2021/12/crypto-start/</id>
         <title>密码学（Crypto）学习方向</title>
-        <link rel="alternate" href="https://coldwinds5167.github.io/2021/12/crypto-start/"/>
+        <link rel="alternate" href="https://www.coldwinds.top/2021/12/crypto-start/"/>
         <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;我本身并不是学习密码学方向的，所以这里也只是收集整合了一些资料，简单介绍一下密码学方向的学习内容。&lt;/p&gt;
 &lt;p&gt;纯粹密码学的考题，在 CTF 中会划分到 Crypto 中，有时也会被归于 MISC 的一种，有时会与 PWN、REVERSE 类型的题目相结合。且题目也趋向于前沿化、论文化。&lt;/p&gt;
@@ -897,13 +897,13 @@ C 语言学习的是面向过程思想，是学习编程语言的起点，把 C 
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="Crypto" scheme="https://coldwinds5167.github.io/tags/Crypto/" />
+        <category term="Crypto" scheme="https://www.coldwinds.top/tags/Crypto/" />
         <updated>2021-12-13T01:58:52.000Z</updated>
     </entry>
     <entry>
-        <id>https://coldwinds5167.github.io/2021/12/pwn-reserve-start/</id>
+        <id>https://www.coldwinds.top/2021/12/pwn-reserve-start/</id>
         <title>二进制（pwn、reverse）学习方向</title>
-        <link rel="alternate" href="https://coldwinds5167.github.io/2021/12/pwn-reserve-start/"/>
+        <link rel="alternate" href="https://www.coldwinds.top/2021/12/pwn-reserve-start/"/>
         <content type="html">&lt;h1 id=&#34;0x00-安全素养&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#0x00-安全素养&#34;&gt;#&lt;/a&gt; 0x00 安全素养&lt;/h1&gt;
 &lt;h2 id=&#34;网络安全法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络安全法&#34;&gt;#&lt;/a&gt; 网络安全法&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;不要违法，不要违法，不要违法。&lt;/strong&gt;&lt;/p&gt;
@@ -1666,14 +1666,14 @@ C 语言学习的是面向过程思想，是学习编程语言的起点，把 C 
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="pwn" scheme="https://coldwinds5167.github.io/tags/pwn/" />
-        <category term="reserve" scheme="https://coldwinds5167.github.io/tags/reserve/" />
+        <category term="pwn" scheme="https://www.coldwinds.top/tags/pwn/" />
+        <category term="reserve" scheme="https://www.coldwinds.top/tags/reserve/" />
         <updated>2021-12-11T15:45:55.000Z</updated>
     </entry>
     <entry>
-        <id>https://coldwinds5167.github.io/2021/12/pwn-environment/</id>
+        <id>https://www.coldwinds.top/2021/12/pwn-environment/</id>
         <title>pwn环境搭建</title>
-        <link rel="alternate" href="https://coldwinds5167.github.io/2021/12/pwn-environment/"/>
+        <link rel="alternate" href="https://www.coldwinds.top/2021/12/pwn-environment/"/>
         <content type="html">&lt;h2 id=&#34;环境搭建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境搭建&#34;&gt;#&lt;/a&gt; 环境搭建&lt;/h2&gt;
 &lt;h3 id=&#34;虚拟机安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#虚拟机安装&#34;&gt;#&lt;/a&gt; 虚拟机安装&lt;/h3&gt;
 &lt;ol&gt;
@@ -1803,13 +1803,13 @@ deb &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL21pcnJvcnMuYWxpeXVuLm
 &lt;p&gt;用来读取 seccomp 沙箱规则。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; gcc ruby-dev&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; gem &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; seccomp-tools&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
-        <category term="pwn" scheme="https://coldwinds5167.github.io/tags/pwn/" />
+        <category term="pwn" scheme="https://www.coldwinds.top/tags/pwn/" />
         <updated>2021-12-11T15:05:05.000Z</updated>
     </entry>
     <entry>
-        <id>https://coldwinds5167.github.io/2021/12/Re-Entrancy/</id>
+        <id>https://www.coldwinds.top/2021/12/Re-Entrancy/</id>
         <title>重入攻击</title>
-        <link rel="alternate" href="https://coldwinds5167.github.io/2021/12/Re-Entrancy/"/>
+        <link rel="alternate" href="https://www.coldwinds.top/2021/12/Re-Entrancy/"/>
         <content type="html">&lt;h1 id=&#34;重入攻击re-entrancy&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重入攻击re-entrancy&#34;&gt;#&lt;/a&gt; 重入攻击（Re-Entrancy）&lt;/h1&gt;
 &lt;h2 id=&#34;前置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置&#34;&gt;#&lt;/a&gt; 前置&lt;/h2&gt;
 &lt;h3 id=&#34;原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
@@ -1879,13 +1879,13 @@ deb &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL21pcnJvcnMuYWxpeXVuLm
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="Blockchain" scheme="https://coldwinds5167.github.io/tags/Blockchain/" />
+        <category term="Blockchain" scheme="https://www.coldwinds.top/tags/Blockchain/" />
         <updated>2021-12-11T11:56:34.000Z</updated>
     </entry>
     <entry>
-        <id>https://coldwinds5167.github.io/2021/12/Blockchain-profiles/</id>
+        <id>https://www.coldwinds.top/2021/12/Blockchain-profiles/</id>
         <title>区块链简介</title>
-        <link rel="alternate" href="https://coldwinds5167.github.io/2021/12/Blockchain-profiles/"/>
+        <link rel="alternate" href="https://www.coldwinds.top/2021/12/Blockchain-profiles/"/>
         <content type="html">&lt;h1 id=&#34;区块链简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#区块链简介&#34;&gt;#&lt;/a&gt; 区块链简介&lt;/h1&gt;
 &lt;h2 id=&#34;概念定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概念定义&#34;&gt;#&lt;/a&gt; 概念定义&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -1941,7 +1941,7 @@ deb &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL21pcnJvcnMuYWxpeXVuLm
 &lt;li&gt;…………&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="Blockchain" scheme="https://coldwinds5167.github.io/tags/Blockchain/" />
+        <category term="Blockchain" scheme="https://www.coldwinds.top/tags/Blockchain/" />
         <updated>2021-12-11T11:47:26.000Z</updated>
     </entry>
 </feed>
