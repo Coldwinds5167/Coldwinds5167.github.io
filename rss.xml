@@ -10,12 +10,138 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Mon, 18 Apr 2022 21:34:29 +0800</pubDate>
-        <lastBuildDate>Mon, 18 Apr 2022 21:34:29 +0800</lastBuildDate>
+        <pubDate>Sun, 09 Oct 2022 17:14:26 +0800</pubDate>
+        <lastBuildDate>Sun, 09 Oct 2022 17:14:26 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://www.coldwinds.top/2022/04/off-by-null/</guid>
+            <guid isPermalink="true">https://www.coldwinds.top/2022/10/Blockchain-solve/</guid>
+            <title>Blockchain解题入门</title>
+            <link>https://www.coldwinds.top/2022/10/Blockchain-solve/</link>
+            <category term="Blockchain" scheme="https://www.coldwinds.top/tags/Blockchain/" />
+            <pubDate>Sun, 09 Oct 2022 17:14:26 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;blockchain解题入门&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#blockchain解题入门&#34;&gt;#&lt;/a&gt; Blockchain 解题入门&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;写在前面：近年来 Blockchain 在 CTF 比赛中的出现频率越来越高，并且相比于其他方向，Blockchain 在解题入门方面的教程还比较少，对于新手来说可能连题目都看不懂，本文以 Chainflag 平台为例，简单介绍了 Blockchain 方向题目的解题步骤。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;智能合约语言目前以 Solidity 为主，除此以外，还有 Vyper、Mandala 和 Obsidian 等在不同方向改善智能合约的语言。&lt;/p&gt;
+&lt;h2 id=&#34;一些工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一些工具&#34;&gt;#&lt;/a&gt; 一些工具&lt;/h2&gt;
+&lt;p&gt;这里主要写一下解题时需要用到的一些工具。&lt;/p&gt;
+&lt;h3 id=&#34;ide&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ide&#34;&gt;#&lt;/a&gt; IDE&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Solidity 网站上有编译器的安装教程：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnNvbGlkaXR5bGFuZy5vcmcvZW4vZGV2ZWxvcC9pbnN0YWxsaW5nLXNvbGlkaXR5Lmh0bWw=&#34;&gt;https://docs.soliditylang.org/en/develop/installing-solidity.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;推荐使用 REMIX：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3JlbWl4LmV0aGVyZXVtLm9yZy8lRUYlQkMlOEMlRTUlOEYlQUYlRTQlQkIlQTUlRTUlOUMlQTglRTYlQjUlOEYlRTglQTclODglRTUlOTklQTglRTQlQjglQUQlRTUlQkYlQUIlRTklODAlOUYlRTklODMlQTglRTclQkQlQjIlRTYlQjUlOEIlRTglQUYlOTUlRTYlOTklQkElRTglODMlQkQlRTUlOTAlODglRTclQkElQTYlRUYlQkMlOEMlRTQlQjglOEQlRTklOUMlODAlRTglQTYlODElRTUlOUMlQTglRTYlOUMlQUMlRTUlOUMlQjAlRTUlQUUlODklRTglQTMlODUlRTQlQkIlQkIlRTQlQkQlOTUlRTclQTglOEIlRTUlQkElOEYlRUYlQkMlOEMlRTQlQjklOUYlRTYlOTglQUYlRTQlQkIlQTUlRTUlQTQlQUElRTUlOUQlOEElRTUlQUUlOTglRTYlOTYlQjklRTYlOEUlQTglRTglOEQlOTAlRTclOUElODQlRTYlOTklQkElRTglODMlQkQlRTUlOTAlODglRTclQkElQTYlRTUlQkMlODAlRTUlOEYlOTFJREUlRTMlODAlODI=&#34;&gt;http://remix.ethereum.org/，可以在浏览器中快速部署测试智能合约，不需要在本地安装任何程序，也是以太坊官方推荐的智能合约开发 IDE。&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;remix主界面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#remix主界面&#34;&gt;#&lt;/a&gt; REMIX 主界面&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120190858.png&#34; alt=&#34;&#34; title=&#34;初始界面&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;左侧remix-logo下方第一个选项是workspaces可以建立多个工作区在工作区内可以新建合约&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#左侧remix-logo下方第一个选项是workspaces可以建立多个工作区在工作区内可以新建合约&#34;&gt;#&lt;/a&gt; 左侧 REMIX logo 下方第一个选项是 workspaces，可以建立多个工作区，在工作区内可以新建合约。&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120191256.png&#34; alt=&#34;&#34; title=&#34;代码编辑界面&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;logo下方第二个选项是编译可以选择语言及版本合约中的语法错误也会显示在这里&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#logo下方第二个选项是编译可以选择语言及版本合约中的语法错误也会显示在这里&#34;&gt;#&lt;/a&gt; logo 下方第二个选项是编译，可以选择语言及版本，合约中的语法错误也会显示在这里。&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120191420.png&#34; alt=&#34;&#34; title=&#34;编译界面（一般会自动编译）&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;第三个选项是部署和执行在代码编译完成后可以在这里部署合约也可以和已部署的合约进行交互&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第三个选项是部署和执行在代码编译完成后可以在这里部署合约也可以和已部署的合约进行交互&#34;&gt;#&lt;/a&gt; 第三个选项是部署和执行，在代码编译完成后，可以在这里部署合约，也可以和已部署的合约进行交互。&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ENVIRONMENT：默认使用 JS 虚拟机本地模拟一条测试链，如果想要连接测试网，选择 Injected Provider。&lt;/p&gt;
+&lt;p&gt;ACCOUNT：当前使用的账户，如果是默认的 JS 虚拟机会分配数个有大量测试币的测试账户，如果环境是 Injected Provider，可以在 MetaMask 中切换账户。&lt;/p&gt;
+&lt;p&gt;GAS LIMIT：合约的 gas 上限。&lt;/p&gt;
+&lt;p&gt;VALUE：转入多少 ETH。&lt;/p&gt;
+&lt;p&gt;CONTARCT：一个文件中可能包含多个合约，这里选择具体部署哪一个合约。&lt;/p&gt;
+&lt;p&gt;At Address：如果合约已经部署，可以在这里输入该合约的地址进行交互。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120192028.png&#34; alt=&#34;&#34; title=&#34;交互界面&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;钱包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#钱包&#34;&gt;#&lt;/a&gt; 钱包&lt;/h3&gt;
+&lt;p&gt;推荐使用 MetaMask，chrome 浏览器上的一个插件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;记住要保存好 MetaMask 的解锁密码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220928130453.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;新建账户&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#新建账户&#34;&gt;#&lt;/a&gt; 新建账户&lt;/h4&gt;
+&lt;p&gt;MateMask 上创建账户非常简单，点击右上角的用户栏，选择新建账户，随意输入一个名称即可。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120185758.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;如何获取以太币&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#如何获取以太币&#34;&gt;#&lt;/a&gt; 如何获取以太币&lt;/h4&gt;
+&lt;p&gt;在新建一个账户后，我们的账户中是没有 ETH 的，需要从水龙头中获取 ETH。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9nb2VybGlmYXVjZXQuY29tLw==&#34;&gt;https://goerlifaucet.com/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;每天可以获得 0.25ETH&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;网络切换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络切换&#34;&gt;#&lt;/a&gt; 网络切换&lt;/h4&gt;
+&lt;p&gt;本次比赛题目部署在 Goerli 测试网络上，如果在其他测试网络上，可以在 MetaMask 的右上角进行网络切换。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120192757.png&#34; alt=&#34;&#34; title=&#34;在主网和各个测试网中切换&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;反编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#反编译器&#34;&gt;#&lt;/a&gt; 反编译器&lt;/h3&gt;
+&lt;p&gt;合约其实也跟程序差不多，可以反编译，也可以进行调试，这里推荐一个在线反编译合约的网站。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ldGhlcnZtLmlvL2RlY29tcGlsZQ==&#34;&gt;https://ethervm.io/decompile&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/1642681593(1).png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;可以得到合约反编译出来的代码以及合约中的函数或变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#可以得到合约反编译出来的代码以及合约中的函数或变量&#34;&gt;#&lt;/a&gt; 可以得到合约反编译出来的代码，以及合约中的函数或变量。&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120202349.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;区块链浏览器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#区块链浏览器&#34;&gt;#&lt;/a&gt; 区块链浏览器&lt;/h3&gt;
+&lt;p&gt;区块链浏览器是专门用来查看链上的各种信息的工具，可以检索的信息包括但不限于：账户地址、合约地址、交易 Hash 等。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120205326.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;查询账户地址可以看到当前余额，近期交易等信息。&lt;/p&gt;
+&lt;h2 id=&#34;解题流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解题流程&#34;&gt;#&lt;/a&gt; 解题流程&lt;/h2&gt;
+&lt;p&gt;以 chainflag 平台为例，题目会给出题目名称、题目描述、题目 Docker 等信息。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;C:%5CUsers%5CViper%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220120205753648.png&#34; alt=&#34;image-20220120205753648&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在连接上 docker 后，给出了四个选项以及题目要求：&lt;/p&gt;
+&lt;p&gt;![](&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0NvbGR3aW5kczUxNjcvUGljdHVyZS9tYWluL2ltZy9TY3JlZW5zaG90&#34;&gt;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/Screenshot&lt;/span&gt; from 2022-01-20 05-04-55.png &amp;quot;连接 docker&amp;quot;)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;题目要求：让 isSolved () 函数返回 true&lt;/p&gt;
+&lt;p&gt;四个选项：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建一个用于该题目的账户。&lt;/li&gt;
+&lt;li&gt;用步骤 1 的账户部署题目。&lt;/li&gt;
+&lt;li&gt;达成目标后获取 flag。&lt;/li&gt;
+&lt;li&gt;显示合约源代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1创建题目账户&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1创建题目账户&#34;&gt;#&lt;/a&gt; 1. 创建题目账户&lt;/h3&gt;
+&lt;p&gt;这里我们先选择 1，创建一个账户：&lt;/p&gt;
+&lt;p&gt;![](&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0NvbGR3aW5kczUxNjcvUGljdHVyZS9tYWluL2ltZy9TY3JlZW5zaG90&#34;&gt;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/Screenshot&lt;/span&gt; from 2022-01-20 05-06-09.png &amp;quot;创建题目账户&amp;quot;)&lt;/p&gt;
+&lt;p&gt;创建完成后，返回给了我们：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;账户地址，用于部署题目合约。&lt;/p&gt;
+&lt;p&gt;token，用于选项 2 部署合约以及选项 3 获取 flag。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同时提示我们需要向该账户转一定量的 ETH，转入的 ETH 会用于部署合约，需要注意的是，这里的数值是当前部署合约的预估价，根据实时 Gas 价格不同可能会有浮动（不够就多转点）。&lt;/p&gt;
+&lt;h3 id=&#34;2部署题目合约&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2部署题目合约&#34;&gt;#&lt;/a&gt; 2. 部署题目合约&lt;/h3&gt;
+&lt;p&gt;由于 docker 执行完 1 后不会自动断开连接，所以手动断开 docker 并重新 nc。&lt;/p&gt;
+&lt;p&gt;接着我们选择 2，部署题目合约：&lt;/p&gt;
+&lt;p&gt;![](&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0NvbGR3aW5kczUxNjcvUGljdHVyZS9tYWluL2ltZy9TY3JlZW5zaG90&#34;&gt;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/Screenshot&lt;/span&gt; from 2022-01-20 05-06-41.png &amp;quot;部署题目合约&amp;quot;)&lt;/p&gt;
+&lt;p&gt;这时会要求我们输入 token，也就是选项 1 所给的 token。&lt;/p&gt;
+&lt;p&gt;在部署完成后，返回给了我们：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;合约地址，即部署的题目合约。&lt;/p&gt;
+&lt;p&gt;部署合约的交易 hash。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当执行完选项 2 后，题目就算部署完毕了，接下来就需要在 REMIX 上编写攻击合约对题目进行攻击，以实现题目要求，获取 flag。&lt;/p&gt;
+&lt;h3 id=&#34;3编写攻击合约&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3编写攻击合约&#34;&gt;#&lt;/a&gt; 3. 编写攻击合约&lt;/h3&gt;
+&lt;p&gt;在我们编写攻击合约时，需要调用题目合约中的函数，比如 &lt;code&gt;isSolved()&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;和传统语言一样，我们在调用某个函数时，需要先有该函数的定义。因此，我们需要得到题目合约的源码，一般情况下题目都会给出源码，也就是上面的选项 4：&lt;/p&gt;
+&lt;p&gt;![](&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0NvbGR3aW5kczUxNjcvUGljdHVyZS9tYWluL2ltZy9TY3JlZW5zaG90&#34;&gt;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/Screenshot&lt;/span&gt; from 2022-01-20 05-07-40.png &amp;quot;获取题目合约源码&amp;quot;)&lt;/p&gt;
+&lt;p&gt;而对于那些没有给出源码的题目，我们就需要通过反编译工具来逆出题目合约的逻辑，来复写代码。&lt;/p&gt;
+&lt;figure class=&#34;highlight solidity&#34;&gt;&lt;figcaption data-lang=&#34;Solidity (Ethereum)&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;pragma&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;solidity&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.7&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Greeter&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        greeting &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;greet&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token comment&#34;&gt;//setGreeting 可以接受一个 string 类型的参数，并把这个参数的值赋给 greeting&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;setGreeting&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        greeting &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;isSolved&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;bool&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt; expected &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;HelloChainFlag&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;keccak256&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;abi&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;encodePacked&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;expected&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;keccak256&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;abi&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;encodePacked&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;greeting&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;得到题目合约的源代码后，分析一下函数，有 &lt;code&gt;greet()&lt;/code&gt;  、 &lt;code&gt;setGreeting()&lt;/code&gt; 、 &lt;code&gt;isSolved()&lt;/code&gt;  三个函数。&lt;/p&gt;
+&lt;p&gt;题目要求让 &lt;code&gt;isSolved()&lt;/code&gt;  返回 true，就需要让 &lt;code&gt;keccak256(abi.encodePacked(expected)) == keccak256(abi.encodePacked(greeting))&lt;/code&gt; ，也就是 &lt;code&gt;expected==greeting&lt;/code&gt; ，而题目合约中使 &lt;code&gt;expected = &amp;quot;HelloChainFlag&amp;quot;&lt;/code&gt; ，那么我们只要修改 &lt;code&gt;greeting&lt;/code&gt;  为 &lt;code&gt;&amp;quot;HelloChainFlag&amp;quot;&lt;/code&gt; ，就可以实现题目要求。&lt;/p&gt;
+&lt;p&gt;而题目合约中刚好存在可以修改 &lt;code&gt;greeting&lt;/code&gt;  的函数 —— &lt;code&gt;setGreeting()&lt;/code&gt; 。那么我们只需要调用 &lt;code&gt;setGreeting()&lt;/code&gt;  并修改 &lt;code&gt;greeting&lt;/code&gt; ，然后再调用 &lt;code&gt;isSolved()&lt;/code&gt; ，就算完成题目要求。&lt;/p&gt;
+&lt;p&gt;那么下面开始编写攻击合约：&lt;/p&gt;
+&lt;figure class=&#34;highlight solidity&#34;&gt;&lt;figcaption data-lang=&#34;Solidity (Ethereum)&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;pragma&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;solidity&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.7&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 因为我们的攻击合约需要用到题目合约的函数，所以这里直接照搬题目合约的代码，用来提供定义。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Greeter&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        greeting &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;greet&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;setGreeting&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        greeting &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; _greeting&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;isSolved&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;bool&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt; expected &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;HelloChainFlag&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;keccak256&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;abi&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;encodePacked&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;expected&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;keccak256&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;abi&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;encodePacked&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;greeting&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;exp&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 首先要确定需要攻击的合约，因此这里填上之前选项 2 部署的合约的地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token builtin&#34;&gt;address&lt;/span&gt; instance_address &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x6bed92ec6DD3363ED64E27A669C24880a79A56c3&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 这里把题目合约地址和模块简化一下，后面调用时直接用 target 就可以了&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Greeter target &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;Greeter&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;instance_address&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;payable&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token comment&#34;&gt;// 在攻击合约里定义一个 hack 函数，public 说明该函数可供外部、子合约、合约内部访问。后面的 returns 则是定义该函数的返回值类型&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;hack&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;bool&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token builtin&#34;&gt;bool&lt;/span&gt; answer &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 定义一个 string 类型的变量 greeting 并赋值为 &#34;HelloChainFlag&#34;，memory 表示数据储存在内存中，并不会储存在链上，可以节省 gas。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token builtin&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;memory&lt;/span&gt; greeting &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;HelloChainFlag&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 调用题目合约的 setGreeting 函数，并将 greeting 作为参数传输过去&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        target&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setGreeting&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;greeting&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 调用题目合约的 isSolved 函数，在执行完上一条语句后，题目合约中的 expected 就会等于 greeting，因此 isSolved 会返回 true，达成题目要求。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;41&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        answer &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; target&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;isSolved&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;42&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; answer&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;43&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;44&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;4部署攻击合约并进行攻击&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4部署攻击合约并进行攻击&#34;&gt;#&lt;/a&gt; 4. 部署攻击合约并进行攻击&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120220301.png&#34; alt=&#34;&#34; title=&#34;编译攻击合约&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;编写好攻击合约后，我们要先编译攻击合约，在编译时要选择好对应的 Solidity 版本。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120221350.png&#34; alt=&#34;&#34; title=&#34;部署攻击合约&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;前面提到一个 sol 文件中可能会存在多个合约，因此这里选择攻击合约（exp）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在部署完成后，左边的 &lt;code&gt;Deployed Contracts&lt;/code&gt;  下会出现我们的攻击合约，我们将他展开：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120222212.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;名为 hack 的黄色按钮就是我们攻击合约中的 hack 函数，点击按钮就会执行一次 hack 函数，当然，因为它和已经上链的题目合约产生了交互，所以需要花费 gas。&lt;/p&gt;
+&lt;p&gt;我们点击 hack，MateMask 会弹出一个支付窗口用于核对交易金额及手续费。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/20220120222432.png&#34; alt=&#34;&#34; title=&#34;核对金额及手续费&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;确认支付后，可以在下方看到执行状态，出现绿勾说明函数执行成功，点击绿勾可以查看详细信息，同时我们也可以在区块链浏览器中查到我们这一笔交易的信息。&lt;/p&gt;
+&lt;h3 id=&#34;5获取flag&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5获取flag&#34;&gt;#&lt;/a&gt; 5. 获取 flag&lt;/h3&gt;
+&lt;p&gt;因为我们成功使 isSolved 函数返回 true，完成了题目的要求，所以我们重新连接 docker，选择选项 3，还是输入之前的 token，在验证完成后就会给我们回显 flag。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220120223148.png&#34; alt=&#34;&#34; title=&#34;获得flag&#34; /&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://www.coldwinds.top/2022/04/pwn-offbynull/</guid>
             <title>off-by-null</title>
-            <link>https://www.coldwinds.top/2022/04/off-by-null/</link>
+            <link>https://www.coldwinds.top/2022/04/pwn-offbynull/</link>
             <category term="pwn" scheme="https://www.coldwinds.top/tags/pwn/" />
             <pubDate>Mon, 18 Apr 2022 21:34:29 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;off-by-null&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#off-by-null&#34;&gt;#&lt;/a&gt; Off by null&lt;/h1&gt;
@@ -68,9 +194,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://www.coldwinds.top/2022/04/bins-profiles/</guid>
+            <guid isPermalink="true">https://www.coldwinds.top/2022/04/pwn-bins-profiles/</guid>
             <title>bins-profiles</title>
-            <link>https://www.coldwinds.top/2022/04/bins-profiles/</link>
+            <link>https://www.coldwinds.top/2022/04/pwn-bins-profiles/</link>
             <category term="pwn" scheme="https://www.coldwinds.top/tags/pwn/" />
             <pubDate>Mon, 18 Apr 2022 21:32:03 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;堆&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#堆&#34;&gt;#&lt;/a&gt; 堆&lt;/h1&gt;
@@ -168,9 +294,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://www.coldwinds.top/2022/03/2019-qwb-babybank/</guid>
+            <guid isPermalink="true">https://www.coldwinds.top/2022/03/Blockchain-2019qwb-babybank/</guid>
             <title>2019-强网杯-babybank</title>
-            <link>https://www.coldwinds.top/2022/03/2019-qwb-babybank/</link>
+            <link>https://www.coldwinds.top/2022/03/Blockchain-2019qwb-babybank/</link>
             <category term="Blockchain" scheme="https://www.coldwinds.top/tags/Blockchain/" />
             <pubDate>Tue, 08 Mar 2022 23:41:09 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;2019强网杯babybank&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2019强网杯babybank&#34;&gt;#&lt;/a&gt; 2019 强网杯 babybank&lt;/h1&gt;
@@ -238,9 +364,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://www.coldwinds.top/2021/12/IO-FILE-vtable/</guid>
+            <guid isPermalink="true">https://www.coldwinds.top/2021/12/pwn-IOFILE-vtable/</guid>
             <title>IO_FILE介绍及vtable劫持</title>
-            <link>https://www.coldwinds.top/2021/12/IO-FILE-vtable/</link>
+            <link>https://www.coldwinds.top/2021/12/pwn-IOFILE-vtable/</link>
             <category term="pwn" scheme="https://www.coldwinds.top/tags/pwn/" />
             <category term="IO_FILE" scheme="https://www.coldwinds.top/tags/IO-FILE/" />
             <pubDate>Mon, 13 Dec 2021 17:05:03 +0800</pubDate>
@@ -1129,9 +1255,9 @@ C 语言学习的是面向过程思想，是学习编程语言的起点，把 C 
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://www.coldwinds.top/2021/12/pwn-reserve-start/</guid>
+            <guid isPermalink="true">https://www.coldwinds.top/2021/12/pwn&amp;reserve-start/</guid>
             <title>二进制（pwn、reverse）学习方向</title>
-            <link>https://www.coldwinds.top/2021/12/pwn-reserve-start/</link>
+            <link>https://www.coldwinds.top/2021/12/pwn&amp;reserve-start/</link>
             <category term="pwn" scheme="https://www.coldwinds.top/tags/pwn/" />
             <category term="reserve" scheme="https://www.coldwinds.top/tags/reserve/" />
             <pubDate>Sat, 11 Dec 2021 23:45:55 +0800</pubDate>
@@ -1195,9 +1321,9 @@ C 语言学习的是面向过程思想，是学习编程语言的起点，把 C 
 &lt;p&gt;CTF 中接触到的 PWN 题大多属于 LINUX PWN，给电脑装 LINUX 系统比较麻烦，一般情况下是装虚拟机。&lt;/p&gt;
 &lt;p&gt;如果想跳过配置环境这一步，可以直接使用 KALI LINUX，但还是建议自己装一次环境（日后可能会需要下载安装一些工具，需要会 LINUX 系统的操作）。&lt;/p&gt;
 &lt;p&gt;可以参考我的另一篇文章：&lt;/p&gt;
-&lt;p&gt;&lt;div class=&#34;links&#34;&gt;&lt;div class=&#34;item&#34; title=&#34;Coldwinds&#34; style=&#34;--block-color:#9d5b8b;&#34;&gt;&lt;a href=&#34;https://coldwinds5167.github.io/2021/12/pwn-environment/&#34; class=&#34;image&#34; data-background-image=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/avatar.jpg&#34;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;div class=&#34;links&#34;&gt;&lt;div class=&#34;item&#34; title=&#34;Coldwinds&#34; style=&#34;--block-color:#9d5b8b;&#34;&gt;&lt;span class=&#34;exturl image&#34; data-url=&#34;aHR0cHM6Ly9jb2xkd2luZHM1MTY3LmdpdGh1Yi5pby8yMDIxLzEyL3B3bi1lbnZpcm9ubWVudC8=&#34; data-background-image=&#34;https://raw.githubusercontent.com/Coldwinds5167/Picture/main/img/avatar.jpg&#34;&gt;&lt;/span&gt;
           &lt;div class=&#34;info&#34;&gt;
-          &lt;a href=&#34;https://coldwinds5167.github.io/2021/12/pwn-environment/&#34; class=&#34;title&#34;&gt;冷风喧嚣&lt;/a&gt;
+          &lt;span class=&#34;exturl title&#34; data-url=&#34;aHR0cHM6Ly9jb2xkd2luZHM1MTY3LmdpdGh1Yi5pby8yMDIxLzEyL3B3bi1lbnZpcm9ubWVudC8=&#34;&gt;冷风喧嚣&lt;/span&gt;
           &lt;p class=&#34;desc&#34;&gt;pwn环境搭建&lt;/p&gt;
           &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id=&#34;基本工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本工具&#34;&gt;#&lt;/a&gt; 基本工具&lt;/h4&gt;
@@ -2035,9 +2161,9 @@ deb &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL21pcnJvcnMuYWxpeXVuLm
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; gcc ruby-dev&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; gem &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; seccomp-tools&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://www.coldwinds.top/2021/12/Re-Entrancy/</guid>
+            <guid isPermalink="true">https://www.coldwinds.top/2021/12/Blockchain-ReEntrancy/</guid>
             <title>重入攻击</title>
-            <link>https://www.coldwinds.top/2021/12/Re-Entrancy/</link>
+            <link>https://www.coldwinds.top/2021/12/Blockchain-ReEntrancy/</link>
             <category term="Blockchain" scheme="https://www.coldwinds.top/tags/Blockchain/" />
             <pubDate>Sat, 11 Dec 2021 19:56:34 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;重入攻击re-entrancy&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重入攻击re-entrancy&#34;&gt;#&lt;/a&gt; 重入攻击（Re-Entrancy）&lt;/h1&gt;
